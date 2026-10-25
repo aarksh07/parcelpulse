@@ -1,4 +1,10 @@
-<?php 
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../login.php");
+    exit();
+}
+?>
 include __DIR__ . '/../config/database.php'; 
 include __DIR__ . '/../header.php';
 ?>

@@ -1,4 +1,10 @@
-<?php include 'header.php'; 
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+include 'header.php';
 $conn = mysqli_connect("localhost", "root", "");
 mysqli_query($conn, "CREATE DATABASE IF NOT EXISTS parcelpulse");
 mysqli_select_db($conn, "parcelpulse");
